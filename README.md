@@ -7,7 +7,7 @@ This is a Python code for Lambda serverless function that updates a counter when
 
 ![my ddb](https://github.com/memor24/myWebsite-backend/assets/112832477/e1eba4df-9a27-46f2-8681-32054399f111)
 
-The JavaScript invokes the lambda funtion directly and shows the updated view count on the page. An application loadbalancer (AWS-ALB) will be added for additional security and will be secured further using a web application firewall (WAF).
+The JavaScript invokes the lambda funtion directly and shows the updated view count on the page. An application loadbalancer (AWS-ALB) will be added for additional security and will be secured further using a web application firewall (WAF). A Pytest code will be added into the continuous delivery in the test environment.
 
 ## Infrastructure as Code
 TBU: All the AWS resources will be defined as Terraform code and deployed using Terraform commands automatically.
