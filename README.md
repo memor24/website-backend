@@ -1,5 +1,5 @@
 # Architecture
-![sitemap](https://github.com/memor24/myWebsite-backend/assets/112832477/c9f9227a-8520-4843-930a-ee418bfe0bce)
+![sitemap](https://github.com/memor24/myWebsite-backend/assets/112832477/29c442bc-08a5-49fd-9d22-1711ba8af242)
 
 # Backend
 ## Serverless
