@@ -2,8 +2,8 @@
 ![sitemap](https://github.com/memor24/myWebsite-backend/assets/112832477/fac305d9-f99c-488a-8ce9-d4c3f453ba0b)
 
 # Backend
-## Serverless
-This is a Python code for Lambda serverless function that updates a counter when the page is viewd and stores it in a DynamoDB table like this:
+## Lambda Function
+Since we use the serverless function, also known as FaaS-Function as a Service- this is a Python code for the Lambda serverless function that updates a counter when the page is viewd and stores it in a DynamoDB table like this:
 
 ![my ddb](https://github.com/memor24/myWebsite-backend/assets/112832477/e1eba4df-9a27-46f2-8681-32054399f111)
 
