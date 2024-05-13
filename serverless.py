@@ -1,7 +1,7 @@
 import boto3
 
 dynamodb = boto3.resource('dynamodb')  #define ddb client
-table = dynamodb.Table('views_counter')  #select a ddb table
+table = dynamodb.Table('views_counter')  #select the ddb table
 
 def lambda_handler(event, context):  
     #get Key
