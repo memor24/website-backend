@@ -11,4 +11,4 @@ The JavaScript invokes the lambda funtion directly and shows the updated view co
 
 ## Infrastructure as Code
 TBU: All the AWS resources are defined as Terraform code and deployed using Terraform commands automatically.
-Also the code for Lambda function is Dockerized and integrated via Jenkins to ECR. The Jenkins pipeline will be fully automated with Groovy.
+Also the code for Lambda function is Dockerized and integrated via Jenkins to ECR. The Jenkins pipeline itself will be fully automated.
