@@ -1,5 +1,5 @@
 # Architecture
-![sitemap](https://github.com/memor24/myWebsite-backend/assets/112832477/fac305d9-f99c-488a-8ce9-d4c3f453ba0b)
+![new sitemap](https://github.com/user-attachments/assets/20050cf5-a8e5-454b-a2d5-b6adb7ff6ef0)
 
 # Backend
 ## Lambda Function
