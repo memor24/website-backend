@@ -1,0 +1,29 @@
+# template to automate aws parameters for use with sam
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Description: Serverless API with DynamoDB
+
+Resources:
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: view_counter/
+      Handler: app.lambda_handler
+      Runtime: python3.8
+      MemorySize: 128
+      Timeout: 3
+      Role:
+        Fn::GetAtt:
+          - ViewCounterFunctionRole
+          - Arn
+      Environment:
+        Variables:
+          DYNAMODB_TABLE_NAME: !Ref MyTable
+
+  MyTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      AttributeDefinitions:
+        - id
+        - counter
