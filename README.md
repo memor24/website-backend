@@ -10,5 +10,5 @@ Since we use the serverless function, also known as FaaS-Function as a Service- 
 The JavaScript invokes the lambda funtion directly and shows the updated view count on the page. An application loadbalancer (AWS-ALB) will be added for additional security and will be secured further using a web application firewall (WAF). A Pytest code will be added into the continuous delivery in the test environment.
 
 ## Infrastructure as Code
-TBU: All the AWS resources are defined as Terraform code and deployed using Terraform commands automatically.
-Also the code for Lambda function is Dockerized and integrated via Jenkins to ECR. The Jenkins pipeline itself will be fully automated.
+All the AWS resources are defined as Terraform code and deployed automatically.
+Also the code for Lambda function is Dockerized and integrated via Jenkins to ECR.
