@@ -5,7 +5,7 @@ Transform: AWS::Serverless-2016-10-31
 Description: Serverless API with DynamoDB
 
 Resources:
-  HelloWorldFunction:
+  SimpleServerlessFunction:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: view_counter/
