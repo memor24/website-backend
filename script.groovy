@@ -1,0 +1,1 @@
+// groovy script to automate cicd (incl jenkins plugins, etc) and execute the jenkins file
