@@ -1,4 +1,4 @@
-# code test script to be run with pytest as a step of the cicd pipeline
+# test step of the cicd pipeline
 
 import pytest
 import boto3
