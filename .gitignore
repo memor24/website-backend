@@ -1,3 +1,4 @@
+*.aws
 # vscode settings?
 *.vscdb
 # git settings?
