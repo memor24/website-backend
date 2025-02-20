@@ -8,8 +8,9 @@ Since we use the serverless function, also known as FaaS-Function as a Service- 
 ![my ddb](https://github.com/memor24/myWebsite-backend/assets/112832477/e1eba4df-9a27-46f2-8681-32054399f111)
 
 The JavaScript invokes the lambda funtion directly and shows the updated view count on the page. \
+Also the code for Lambda function is Dockerized and integrated via Jenkins, can be deployed to ECR for scalability. \
 An application loadbalancer (AWS-ALB) can also be added and further secured using a web application firewall (WAF).
 
 ## Infrastructure as Code
-All the AWS resources are defined as Terraform code and deployed automatically. \
-Also the code for Lambda function is Dockerized and integrated via Jenkins to ECR for scalability of CICD job runs.
+The serverless application modeling (SAM) is used here. Other resources can be defined as Terraform code and deployed automatically. 
+
