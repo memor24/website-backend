@@ -8,7 +8,7 @@ Resources:
   SimpleServerlessFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: view_counter/
+      CodeUri: ./app.py
       Handler: app.lambda_handler
       Runtime: python3.8
       MemorySize: 128
@@ -25,5 +25,10 @@ Resources:
     Type: AWS::DynamoDB::Table
     Properties:
       AttributeDefinitions:
-        - id
-        - counter
+        - AttributeName: id
+          AttributeType: S
+        - AttributeName: counter
+          AttributeType: N
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH # partition key

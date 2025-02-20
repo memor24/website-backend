@@ -1,4 +1,5 @@
 boto3
 requests
+app
 pytest
-pytest-mock
+aws-sam-cli

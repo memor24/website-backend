@@ -1,15 +1,24 @@
-FROM jenkins/jenkins:lts
+FROM python:3.8-slim
 
-RUN apt-get update && \
-    apt-get install -y \
-       python3 \
-       python3-pip && \
-    pip3 install aws-sam-cli && \
-    apt-get clean && \
+RUN apt update && \
+    apt install -y --no-install-recommend \ 
+# --flag to avoid installing unnecessary packages
+    git && \
+    apt clean && \
     rm -rf /var/lib/apt/lists/*
 
-COPY app.py test.py template.yaml /var/lib/jenkins/workspace/
+#install aws cli and sam cli
+RUN pip3 install --no-cache-dir awscli aws-sam-cli
+# to avoid caching python packages
 
-RUN chown -R jenkins:jenkins /var/lib/jenkins/workspace/
+COPY requirements.txt .
+RUN pip3 install --no-cache-dir -r requirements.txt
+
+COPY app.py test.py template.yaml .
+
+WORKDIR /app
+
 EXPOSE 8080
-CMD ["/usr/local/bin/jenkins.sh", "-g", "headless"]
+
+# sh instead of bash to keep the image minimal and secure
+CMD ["sh"]
