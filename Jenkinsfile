@@ -2,43 +2,64 @@ pipeline{
     agent {
         docker{
             image 'memo24/my-lambda:latest'
-            args '-v $HOME/.aws:/root/.aws' // mounts aws credentials to the container 
         }
     }
 
 
     stages{
 
-        stage('Setup'){
+        stage('initialize'){
             steps{
-                sh 'pip3 install -r requirements.txt'
+                script{
+                    def grv = load 'script.groovy'
+                }
             }
         }
 
+        {
+            steps{
+                script{
+                    grv.setup()
+                }
+            }
+        }
 
         stage('Build'){
             steps{
-                sh 'sam build -t template.yaml'
+                script{
+                    grv.buildApp()
+                }
+                
             }
         }
 
-                stage('Test'){
+        stage('Test'){
             steps{
-                sh 'pytest test.py'
+                script{
+                    grv.testApp()
+                }
             }
         }
 
         stage('Deploy'){
-
             environment{
-                AWS_ACCESS_KEY_ID = credentials('aws-access-key')     
-                AWS_SECRET_ACCESS_KEY = credentials('aws-secret-key') // both secrets are stored in Jenkins credentials
+                AWS_ACCESS_KEY_ID = credentials('aws-access-key-id')     
+                AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key') // both secrets are stored in Jenkins credentials
             }
-
             steps{
-                sh 'sam deploy -t template.yaml --no-confirm-changeset --no-fail-on-empty changeset'
+                script{
+                    grv.deployApp()
+                }
             }
         }
-    
+    }
+
+    post {
+        always {
+            echo 'Pipeline completed. Cleaning up...'
+        }
+        failure {
+            echo 'Pipeline failed. Sending notification...'
+        }
     }
 }

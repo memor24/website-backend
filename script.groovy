@@ -1,17 +1,15 @@
 
-
-def setupdApp(){
-    sh 'pip3 install -r requirements.txt'
-}
-
 def buildApp(){
-    sh 'pip3 install -r requirements.txt'
+    sh 'sam build -t template.yaml'
 }
 
 def testApp(){
-    sh 'pytest'
+
+    sh 'pytest test.py'
 }
 
 def deployApp(){
-    sh 'cp -r ./dist/* /var/www/html'
+        
+    sh 'sam deploy -t template.yaml --no-confirm-changeset --no-fail-on-empty-changeset'
+            
 }

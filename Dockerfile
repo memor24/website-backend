@@ -14,11 +14,10 @@ RUN pip3 install --no-cache-dir awscli aws-sam-cli
 COPY requirements.txt .
 RUN pip3 install --no-cache-dir -r requirements.txt
 
-COPY app.py test.py template.yaml ./
-
 WORKDIR /app
+
+COPY app.py test.py template.yaml ./
 
 EXPOSE 8080
 
-# sh instead of bash to keep the image minimal and secure
-CMD ["sh"]
+CMD ["python3", "app.py"]
