@@ -10,58 +10,98 @@
                 "s3:PutObject"
             ],
             "Resource": [
-                "arn:aws:s3:::*/*"
-            ]
-        },
-        {
-            "Sid": "Lambda",
-            "Effect": "Allow",
-            "Action": [
-                "lambda:AddPermission",
-                "lambda:CreateFunction",
-                "lambda:DeleteFunction",
-                "lambda:GetFunction",
-                "lambda:GetFunctionConfiguration",
-                "lambda:ListTags",
-                "lambda:RemovePermission",
-                "lambda:TagResource",
-                "lambda:UntagResource",
-                "lambda:UpdateFunctionCode",
-                "lambda:UpdateFunctionConfiguration"
-            ],
-            "Resource": [
-                "arn:aws:lambda:*:<YOUR_ACCOUNT_ID>:function:*"
-            ]
-        },
-        {
-            "Sid": "IAM",
-            "Effect": "Allow",
-            "Action": [
-                "iam:AttachRolePolicy",
-                "iam:CreateRole",
-                "iam:DeleteRole",
-                "iam:DetachRolePolicy",
-                "iam:GetRole",
-                "iam:PassRole",
-                "iam:TagRole"
-            ],
-            "Resource": [
-                "arn:aws:iam::<YOUR_ACCOUNT_ID>:role/*"
-            ]
-        },
-        {
-            "Sid": "APIGateway",
-            "Effect": "Allow",
-            "Action": [
-                "apigateway:DELETE",
-                "apigateway:GET",
-                "apigateway:PATCH",
-                "apigateway:POST",
-                "apigateway:PUT"
-            ],
-            "Resource": [
-                "arn:aws:apigateway:*::*"
+                "arn:aws:s3:::mehdimorshedi.pro/*"
             ]
         }
     ]
-}
+    },
+    {               
+                        "Sid": "Lambda",
+                        "Effect": "Allow",
+                        "Action": [
+                            "lambda:AddPermission",
+                            "lambda:CreateFunction",
+                            "lambda:DeleteFunction",
+                            "lambda:GetFunction",
+                            "lambda:GetFunctionConfiguration",
+                            "lambda:ListTags",
+                            "lambda:RemovePermission",
+                            "lambda:TagResource",
+                            "lambda:UntagResource",
+                            "lambda:UpdateFunctionCode",
+                            "lambda:UpdateFunctionConfiguration"
+                        ],
+                        "Resource": [
+                            "arn:aws:lambda:*:${AWS_Account_ID}:function:*" 
+                        ]
+                    },
+                    {
+                        "Sid": "IAM",
+                        "Effect": "Allow",
+                        "Action": [
+                            "iam:AttachRolePolicy",
+                            "iam:CreateRole",
+                            "iam:DeleteRole",
+                            "iam:DetachRolePolicy",
+                            "iam:GetRole",
+                            "iam:PassRole",
+                            "iam:TagRole"
+                        ],
+                        "Resource": [
+                            "arn:aws:iam::${AWS_Account_ID}:role/*" 
+                        ]
+                    },
+                    {
+                        "Sid": "APIGateway",
+                        "Effect": "Allow",
+                        "Action": [
+                            "apigateway:DELETE",
+                            "apigateway:GET",
+                            "apigateway:PATCH",
+                            "apigateway:POST",
+                            "apigateway:PUT"
+                        ],
+                        "Resource": [
+                            "arn:aws:apigateway:*::*"
+                        ]
+                    },
+                    {
+                        "Sid": "DynamoDB",
+                        "Effect": "Allow",
+                        "Action": [
+                            "dynamodb:PutItem",
+                            "dynamodb:GetItem",
+                            "dynamodb:UpdateItem",
+                            "dynamodb:DeleteItem"
+                        ],
+                        "Resource": [
+                            "arn:aws:dynamodb:*:${AWS_Account_ID}:table/MyTable" 
+                        ]
+                    },
+                    {
+                        "Sid": "CloudWatchLogs",
+                        "Effect": "Allow",
+                        "Action": [
+                            "logs:CreateLogGroup",
+                            "logs:CreateLogStream",
+                            "logs:PutLogEvents"
+                        ],
+                        "Resource": [
+                            "arn:aws:logs:*:${AWS_Account_ID}:log-group:/aws/lambda/*" 
+                        ]
+                    },
+                    {
+                        "Sid": "CloudFormation",
+                        "Effect": "Allow",
+                        "Action": [
+                            "cloudformation:CreateStack",
+                            "cloudformation:DeleteStack",
+                            "cloudformation:DescribeStacks",
+                            "cloudformation:UpdateStack"
+                        ],
+                        "Resource": [
+                            "*"
+                        ]
+                    }
+                ]
+            }
